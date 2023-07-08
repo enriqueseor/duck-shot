@@ -11,8 +11,7 @@ boolean GameOver = false;
 PImage duck, ducksmall, BG, BG2;
 PImage bg[] = new PImage[3];
 //Buttons
-Button btnHelp;
-Button btnPlay;
+Button btnPlay0, btnHelp1, btnPlay1;
 //Writer
 PrintWriter results;
 
@@ -21,18 +20,19 @@ void setup() {
   //Functions
   smooth();
   //Images
-  bg[0] = loadImage("Start.png");
+  bg[0] = loadImage("ScreenPlay.png");
   bg[0].resize(width, height);
-  bg[1] = loadImage("HelpScreen.png");
+  bg[1] = loadImage("ScreenHelp.png");
   bg[1].resize(width, height);
-  bg[2] = loadImage("Ranking.png");
+  bg[2] = loadImage("ScreenRanking.png");
   bg[2].resize(width, height);
   BG        = loadImage ("BG.png");
   duck      = loadImage ("duck.png");
   ducksmall = loadImage ("ducksmall.png");
   //buttons
-  btnHelp = new Button("help.png",width*0.60,width     ,height*0.75,height);
-  btnPlay = new Button("play.png",width*0.05,width*0.45,height*0.75,height);
+  btnPlay0 = new Button("play.png",width*0.35,width     ,height*0.65,height);
+  btnPlay1 = new Button("play.png",width*0.05,width*0.45,height*0.75,height);
+  btnHelp1 = new Button("help.png",width*0.60,width     ,height*0.75,height);
   //Writer
   results = createWriter("Ranking.txt");
 } //END SETUP
@@ -41,13 +41,14 @@ void draw() {
   switch(pantalla){
     case 0:
       background(bg[0]);
+      btnPlay0.show();
       reset();
       break;
     case 1:
       gameBehaviour();
       scoreboard();
-      btnHelp.show();
-      btnPlay.show();
+      btnHelp1.show();
+      btnPlay1.show();
       break;
     case 2:
       reset();
@@ -72,12 +73,8 @@ void mousePressed() {
       //GAME SCREEN
       case 1:
       shot();
-      if (mouseX > btnHelp.xStart && mouseX < btnHelp.xEnd && mouseY > btnHelp.yStart && mouseY < btnHelp.yEnd) {
-        pantalla = 2;
-      }
-      if (mouseX > btnPlay.xStart && mouseX < btnPlay.xEnd && mouseY > btnPlay.yStart && mouseY < btnPlay.yEnd) {
-        pantalla = 0;
-      }
+      if (mouseX > btnHelp1.xStart && mouseX < btnHelp1.xEnd && mouseY > btnHelp1.yStart && mouseY < btnHelp1.yEnd) {pantalla = 2;}
+      if (mouseX > btnPlay1.xStart && mouseX < btnPlay1.xEnd && mouseY > btnPlay1.yStart && mouseY < btnPlay1.yEnd) {pantalla = 0;}
       break;
       //HELP SCREEN
       case 2:
