@@ -26,14 +26,14 @@ void setup() {
   bg[1].resize(width, height);
   bg[2] = loadImage("ScreenRanking.png");
   bg[2].resize(width, height);
-  BG        = loadImage ("BG.png");
-  duck      = loadImage ("duck.png");
+  BG = loadImage ("BG.png");
+  duck = loadImage ("duck.png");
   ducksmall = loadImage ("ducksmall.png");
   //buttons
-  btnPlay0 = new Button("play.png",width*0.35,width     ,height*0.65,height);
-  btnHelp0 = new Button("help.png",width*0.80,width     ,height*0.05,height);
-  btnPlay1 = new Button("play.png",width*0.05,width*0.45,height*0.75,height);
-  btnHelp1 = new Button("help.png",width*0.60,width     ,height*0.75,height);
+  btnPlay0 = new Button("play.png", width * 0.35f, height * 0.65f, 350, 180);
+  btnHelp0 = new Button("help.png", width * 0.80f, height * 0.05f, 180, 180);
+  btnPlay1 = new Button("play.png", width * 0.10f, height * 0.70f, 300, 150);
+  btnHelp1 = new Button("help.png", width * 0.70f, height * 0.70f, 200, 200);
   //Writer
   results = createWriter("Ranking.txt");
 } //END SETUP
@@ -69,14 +69,14 @@ void mousePressed() {
     switch(pantalla){
       //START SCREEN
       case 0:
-      if (mouseX > btnPlay0.xStart && mouseX < btnPlay0.xEnd && mouseY > btnPlay0.yStart && mouseY < btnPlay0.yEnd) {pantalla = 1;}
-      if (mouseX > btnHelp0.xStart && mouseX < btnHelp0.xEnd && mouseY > btnHelp0.yStart && mouseY < btnHelp0.yEnd) {pantalla = 2;}
+      if (btnPlay0.isClicked()) {pantalla = 1;}
+      if (btnHelp0.isClicked()) {pantalla = 2;}
       break;
       //GAME SCREEN
       case 1:
       shot();
-      if (mouseX > btnHelp1.xStart && mouseX < btnHelp1.xEnd && mouseY > btnHelp1.yStart && mouseY < btnHelp1.yEnd) {pantalla = 2;}
-      if (mouseX > btnPlay1.xStart && mouseX < btnPlay1.xEnd && mouseY > btnPlay1.yStart && mouseY < btnPlay1.yEnd) {pantalla = 0;}
+      if (btnPlay1.isClicked()) {pantalla = 0;}
+      if (btnHelp1.isClicked()) {pantalla = 2;}
       break;
       //HELP SCREEN
       case 2:

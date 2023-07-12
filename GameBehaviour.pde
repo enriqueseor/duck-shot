@@ -37,7 +37,6 @@ public void gameBehaviour(){
       pantalla = 0;
       }
     }
-    
     //Check if small duck has left the stage
     for (int i = 0; i<ducks.length; i++) {
     DuckLine duck = ducks[i];
