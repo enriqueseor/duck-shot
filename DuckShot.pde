@@ -8,10 +8,10 @@ int lives = 3;
 int pantalla = 0;
 boolean GameOver = false;
 //Images
-PImage duck, ducksmall, BG, BG2;
-PImage bg[] = new PImage[3];
+PImage duck, ducksmall, bgGame;
+PImage bg[] = new PImage[4];
 //Buttons
-Button btnPlay0, btnHelp0, btnHelp1, btnPlay1;
+Button btnPlay0, btnHelp0, btnHelp1, btnPlay1, btnStar3, btnHelp3, btnExit3;
 //Writer
 PrintWriter results;
 
@@ -22,21 +22,26 @@ void setup() {
   //Images
   bg[0] = loadImage("ScreenPlay.png");
   bg[0].resize(width, height);
-  bg[1] = loadImage("ScreenHelp.png");
+  bg[1] = loadImage("bgGame.png");
   bg[1].resize(width, height);
-  bg[2] = loadImage("ScreenRanking.png");
+  bg[2] = loadImage("ScreenHelp.png");
   bg[2].resize(width, height);
-  BG = loadImage ("BG.png");
+  bg[3] = loadImage("ScreenRanking.png");
+  bg[3].resize(width, height);
+  bgGame = loadImage ("bgGame.png");
   duck = loadImage ("duck.png");
   ducksmall = loadImage ("ducksmall.png");
   //buttons
-  btnPlay0 = new Button("play.png", width * 0.35f, height * 0.65f, 350, 180);
-  btnHelp0 = new Button("help.png", width * 0.80f, height * 0.05f, 180, 180);
-  btnPlay1 = new Button("play.png", width * 0.10f, height * 0.70f, 300, 150);
-  btnHelp1 = new Button("help.png", width * 0.70f, height * 0.70f, 200, 200);
+  btnPlay0 = new Button("btnPlay.png", width * 0.35f, height * 0.65f, 350, 180);
+  btnHelp0 = new Button("btnHelp.png", width * 0.78f, height * 0.03f, 180, 180);
+  btnPlay1 = new Button("btnPlay.png", width * 0.07f, height * 0.73f, 300, 180);
+  btnHelp1 = new Button("btnHelp.png", width * 0.70f, height * 0.73f, 180, 180);
+  btnStar3 = new Button("btnStar.png", width * 0.02f, height * 0.05f, 220, 180);
+  btnHelp3 = new Button("btnHelp.png", width * 0.80f, height * 0.05f, 180, 180);
+  btnExit3 = new Button("btnExit.png", width * 0.80f, height * 0.73f, 180, 180);
   //Writer
   results = createWriter("Ranking.txt");
-} //END SETUP
+}
 
 void draw() {
   switch(pantalla){
@@ -47,6 +52,7 @@ void draw() {
       reset();
       break;
     case 1:
+      background(bg[1]);
       gameBehaviour();
       scoreboard();
       btnHelp1.show();
@@ -54,15 +60,18 @@ void draw() {
       break;
     case 2:
       reset();
-      background(bg[1]);
+      background(bg[2]);
       break;
     case 3:
-      background(bg[2]);
+      background(bg[3]);
+      btnStar3.show();
+      btnHelp3.show();
+      btnExit3.show();
       ranking();
       results.println(score);
       break;
    }
-} // END DRAW
+}
 
 void mousePressed() {
     if (mouseButton == LEFT) {
@@ -87,10 +96,10 @@ void mousePressed() {
       //RANKING SCREEN
       case 3:
       results.flush();
-      if (mouseX > width*0.05 && mouseX < width*0.25 && mouseY > height*0.05 && mouseY < height*0.30){pantalla = 0;}
-      if (mouseX > width*0.80 && mouseX < width*0.95 && mouseY > height*0.05 && mouseY < height*0.30){pantalla = 2;}
-      if (mouseX > width*0.80 && mouseX < width*0.95 && mouseY > height*0.80 && mouseY < height*0.95){exit();}
+      if (btnStar3.isClicked()) {pantalla = 0;}
+      if (btnHelp3.isClicked()) {pantalla = 2;}
+      if (btnExit3.isClicked()) {exit();}
       break;
     }
   }
-} //END MOUSE PRESSED
+}

@@ -8,6 +8,7 @@ public void ranking(){
   textSize(46);
   Impact = createFont("Impact", 46);
   textFont(Impact);
+  textAlign(CENTER);
   text("Score:" + score, 420, 300);
   text("Score:" + score, 420, 375);
   text("Score:" + score, 420, 450);

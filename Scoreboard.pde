@@ -1,7 +1,7 @@
 
 
 public void scoreboard(){
-  image(BG, 0, 0);
+  image(bgGame, 0, 0);
       textSize(26);
       fill(255);
       stroke(0);
