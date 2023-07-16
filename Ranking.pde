@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Collections;
+
 PFont Impact;
 
 public void ranking(){
@@ -9,9 +12,13 @@ public void ranking(){
   Impact = createFont("Impact", 46);
   textFont(Impact);
   textAlign(CENTER);
-  text("Score:" + score, 420, 300);
-  text("Score:" + score, 420, 375);
-  text("Score:" + score, 420, 450);
-  text("Score:" + score, 420, 525);
-  text("Score:" + score, 420, 600);
+ 
+  String[] scores = loadStrings("Ranking.txt");
+  Arrays.sort(scores, Collections.reverseOrder());
+  int y = 300;
+  for (int i = 0; i < scores.length; i++) {
+    String scoreText = "Score: " + scores[i];
+    text(scoreText, 420, y);
+    y += 75; 
+  }
 }

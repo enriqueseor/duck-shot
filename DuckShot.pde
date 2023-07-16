@@ -6,12 +6,15 @@ Particle[] particles = new Particle[0];
 int score = 0;
 int lives = 3;
 int pantalla = 0;
+//boolean
 boolean GameOver = false;
+boolean scoreSaved = false;
 //Images
 PImage duck, ducksmall, screenGame;
 PImage bg[] = new PImage[4];
 //Buttons
-Button btnPlay0, btnHelp0, btnHelp1, btnPlay1;
+Button btnPlay0, btnHelp0;
+Button btnHelp1, btnStar1;
 Button btnStar2, btnRank2, btnGame2;
 Button btnStar3, btnRank3, btnHelp3, btnExit3;
 //Writer
@@ -37,7 +40,7 @@ void setup() {
   //buttons
   btnPlay0 = new Button("btnPlay.png", width * 0.35f, height * 0.65f, 350, 180);
   btnHelp0 = new Button("btnHelp.png", width * 0.78f, height * 0.03f, 180, 180);
-  btnPlay1 = new Button("btnPlay.png", width * 0.07f, height * 0.73f, 300, 180);
+  btnStar1 = new Button("btnStar.png", width * 0.07f, height * 0.73f, 300, 180);
   btnHelp1 = new Button("btnHelp.png", width * 0.70f, height * 0.73f, 180, 180);
   btnStar2 = new Button("btnStar.png", width * 0.02f, height * 0.03f, 300, 150);
   btnRank2 = new Button("btnRank.png", width * 0.35f, height * 0.03f, 300, 150);
@@ -63,7 +66,7 @@ void draw() {
       gameBehaviour();
       scoreboard();
       btnHelp1.show();
-      btnPlay1.show();
+      btnStar1.show();
       break;
     case 2:
       reset();
@@ -73,13 +76,17 @@ void draw() {
       btnGame2.show();
       break;
     case 3:
-      background(bg[3]);
+     background(bg[3]);
       btnStar3.show();
       btnRank3.show();
       btnHelp3.show();
       btnExit3.show();
       ranking();
-      results.println(score);
+      if (!scoreSaved) {
+        results.println(score);
+        scoreSaved = true;
+      }
+      results.flush();
       break;
    }
 }
@@ -95,7 +102,7 @@ void mousePressed() {
       //GAME SCREEN
       case 1:
       shot();
-      if (btnPlay1.isClicked()) {pantalla = 0;}
+      if (btnStar1.isClicked()) {pantalla = 0;}
       if (btnHelp1.isClicked()) {pantalla = 2;}
       break;
       //HELP SCREEN
@@ -106,9 +113,8 @@ void mousePressed() {
       break;
       //RANKING SCREEN
       case 3:
-      results.flush();
-      if (btnStar3.isClicked()) {pantalla = 0;}
-      if (btnHelp3.isClicked()) {pantalla = 2;}
+      if (btnStar3.isClicked()) {pantalla = 0;scoreSaved = false;}
+      if (btnHelp3.isClicked()) {pantalla = 2;scoreSaved = false;}
       if (btnExit3.isClicked()) {exit();}
       break;
     }
