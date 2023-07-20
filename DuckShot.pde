@@ -31,8 +31,6 @@ void setup() {
   bg[1].resize(width, height);
   bg[2] = loadImage("ScreenHelp.png");
   bg[2].resize(width, height);
-  bg[3] = loadImage("ScreenRanking.png");
-  bg[3].resize(width, height);
   
   duck = loadImage ("duck.png");
   ducksmall = loadImage ("ducksmall.png");
@@ -76,7 +74,7 @@ void draw() {
       btnGame2.show();
       break;
     case 3:
-     background(bg[3]);
+      background(181, 230, 29);
       btnStar3.show();
       btnRank3.show();
       btnHelp3.show();
