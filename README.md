@@ -23,8 +23,10 @@ Welcome to duck shot Game! This is a simple and fun game where players kill as m
 
 To play Duck shot on your local machine, follow these steps:
 
-1. Clone this repository: `git clone https://github.com/enriqueseor/berry-game.git`
+1. Clone this repository: `git clone https://github.com/enriqueseor/duck-shot.git`
 2. You must have to install processing 4.
+3. Open any .pde file you find inside the project folder.
+4. Press the Run top-right button.
 
 ## Gameplay
 
