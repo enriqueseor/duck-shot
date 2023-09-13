@@ -2,8 +2,8 @@
 
 Welcome to duck shot Game! This is a simple and fun game where players kill as many ducks they can!. The game is built using [Processing](https://processing.org/) and is a great example of a casual game for computer.
 
-![screenPlay](https://github.com/enriqueseor/duck-shot/assets/101838134/b47269f6-90e0-41f3-97c5-3be03849d6f8)
-![screenHelp](https://github.com/enriqueseor/duck-shot/assets/101838134/0e01429d-caca-44fa-9c15-517d190a72ab)
+![screenPlay](images/screenPlay)
+![screenHelp](images/screenHelp)
 
 ## Table of Contents
 
@@ -33,8 +33,8 @@ To play Duck shot on your local machine, follow these steps:
 - Avoid to not collecting them, as they will reduce your health.
 - The game ends when your health reaches zero.
 
-![screenGame](https://github.com/enriqueseor/duck-shot/assets/101838134/5561609a-9257-48e6-afc1-9a94c2b74916)
-![screenRank](https://github.com/enriqueseor/duck-shot/assets/101838134/277f3409-4667-46a3-a7f6-5a6ad543cc26)
+![screenGame](images/screenGame)
+![screenRank](images/screenRank)
 
 ## Contributing
 
