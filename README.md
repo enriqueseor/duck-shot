@@ -1,6 +1,7 @@
 # duck shot
 
-Welcome to duck shot Game! This is a simple and fun game where players kill as many ducks they can!. The game is built using [Processing](https://processing.org/) and is a great example of a casual game for computer.
+Welcome to duck shot Game! This is a simple and fun game where players kill as many ducks they can!.
+The game is built using [Processing](https://processing.org/) and is a great example of a casual game for computer.
 
 ![screenPlay](images/screenPlay.png)
 ![screenHelp](images/screenHelp.png)
@@ -10,7 +11,6 @@ Welcome to duck shot Game! This is a simple and fun game where players kill as m
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Gameplay](#gameplay)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
@@ -37,16 +37,6 @@ To play Duck shot on your local machine, follow these steps:
 
 ![screenGame](images/screenGame.png)
 ![screenRank](images/screenRank.png)
-
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to Duck shot, please follow these steps:
-
-1. Fork this repository.
-2. Create a new branch: `git checkout -b feature/your-feature-name`.
-3. Make your changes and commit them: `git commit -am 'Add new feature'`.
-4. Push to the branch: `git push origin feature/your-feature-name`.
-5. Create a pull request.
 
 ## License
 
